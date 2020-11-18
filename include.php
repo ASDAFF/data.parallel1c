@@ -3,27 +3,27 @@ IncludeModuleLangFile(__FILE__);
 
 class CExchangeParallel1c
 {
-    public static function IsNewElement($_1489875223, $_1628523578)
+    public static function IsNewElement($xml, $iblock)
     {
-        $_1420431673 = true;
-        $_1599467888 = \Bitrix\Iblock\ElementTable::getList(
+        $point = true;
+        $res = \Bitrix\Iblock\ElementTable::getList(
             array(
                 'filter' => array(
-                    'IBLOCK_ID' => $_1628523578,
-                    '=XML_ID' => $_1489875223,
+                    'IBLOCK_ID' => $iblock,
+                    '=XML_ID' => $xml,
                     ),
                 'limit' => 1, 'select' => array('ID'),
                 )
         );
-        if ($_1465803975 = $_1599467888->fetch()) {
-            $_1420431673 = false;
+        if ($arg = $res->fetch()) {
+            $point = false;
         }
-        return $_1420431673;
+        return $point;
     }
 
     public static function GetCatalogImportVersions()
     {
-        $_1519238068 = array(
+        $data = array(
             "last" => array(
                 "CODE" => "last",
                 "SORT" => 10000,
@@ -38,12 +38,12 @@ class CExchangeParallel1c
                 "SORT" => 10,
                 "NAME" => GetMessage("exchange_parallel1c_include_founded") . " catalog 17.6.3"),
             );
-        return $_1519238068;
+        return $data;
     }
 
     public static function GetCml2ImportVersions()
     {
-        $_1519238068 = array("bitrix" => array(
+        $data = array("bitrix" => array(
             "CODE" => "bitrix",
             "SORT" => 20000,
             "NAME" => GetMessage("exchange_parallel1c_include_cml2_bitrix_version"),),
@@ -58,7 +58,7 @@ class CExchangeParallel1c
                 "NAME" => GetMessage("exchange_parallel1c_include_20_0_200"),
                 ),
             );
-        return $_1519238068;
+        return $data;
     }
 }
 
