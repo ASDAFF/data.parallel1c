@@ -1,0 +1,17 @@
+<?
+$MESS ['EXCHANGE_PARALLEL1C1_MENU_MAIN'] = "Параллельный и ускоренный обмен с 1С";
+$MESS ['EXCHANGE_PARALLEL1C1_MENU_MAIN_TITLE'] = "Параллельный и ускоренный обмен с 1С";
+
+$MESS ['EXCHANGE_PARALLEL1C1_MENU_EXCHANGES'] = "Настройки обменов с 1С";
+$MESS ['EXCHANGE_PARALLEL1C1_MENU_EXCHANGES_TITLE'] = "";
+
+//$MESS ['EXCHANGE_PARALLEL1C1_MENU_HANDLERS_CATALOG'] = "Доступные обработчики данных";
+//$MESS ['EXCHANGE_PARALLEL1C1_MENU_HANDLERS_CATALOG_TITLE'] = "";
+//
+//$MESS ["EXCHANGE_PARALLEL1C1_MENU_HANDLERS_INIT_VIEW"] = "Файл инициализации";
+//$MESS ["EXCHANGE_PARALLEL1C1_MENU_HANDLERS_INIT_VIEW_TITLE"] = "Просмотр файла инициализации";
+
+$MESS ['EXCHANGE_PARALLEL1C1_SETTINGS_PAGE'] = "Настройки модуля";
+$MESS ['EXCHANGE_PARALLEL1C1_SETTINGS_PAGE_TITLE'] = "Настройки модуля";
+
+?>
