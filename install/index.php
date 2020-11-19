@@ -13,7 +13,7 @@ class exchange_parallel1c extends CModule
     public $PARTNER_NAME;
     public $PARTNER_URI;
     public $MODULE_GROUP_RIGHTS = 'Y';
-    public $_965838297 = '8.0.7';
+    public $version = '8.0.7';
     public $_1499546494 = array("iblock");
     public $_1159779154 = "bitrix";
 
