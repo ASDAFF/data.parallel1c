@@ -1,4 +1,4 @@
-create table if not exists b_exchange_parallel1c_exchange (
+create table if not exists b_data_parallel1c_exchange (
 	`ID` int(18) not null auto_increment,
 	`CODE` varchar(255) not null,
 	`NAME` varchar(255) not null,

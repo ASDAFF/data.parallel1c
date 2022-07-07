@@ -1,5 +1,5 @@
 <?
-namespace Exchange\Parallel1c;
+namespace Data\Parallel1c;
 
 use Bitrix\Main\Entity;
 use Bitrix\Main\Type;
@@ -13,7 +13,7 @@ class ExchangeTable extends Entity\DataManager
 
 	public static function getTableName()
     {
-        return 'b_exchange_parallel1c_exchange';
+        return 'b_data_parallel1c_exchange';
     }
 	
     public static function getMap()
@@ -32,23 +32,23 @@ class ExchangeTable extends Entity\DataManager
 //				'data_type' => 'boolean',
 //				'values' => array("N", "Y"),
 //				'default_value' => "Y",
-//				'title' => GetMessage("EXCHANGE_PARALLELS1C_HANDLER_TABLE_ACTIVE"),
+//				'title' => GetMessage("DATA_PARALLELS1C_HANDLER_TABLE_ACTIVE"),
 //			),
 			'CODE' => array(
 				'data_type' => 'text',
-				'title' => GetMessage("EXCHANGE_PARALLELS1C_HANDLER_TABLE_CODE"),
+				'title' => GetMessage("DATA_PARALLELS1C_HANDLER_TABLE_CODE"),
 			),
 //			'SORT' => array(
 //				'data_type' => 'integer',
-//				'title' => GetMessage("EXCHANGE_PARALLELS1C_HANDLER_TABLE_SORT"),
+//				'title' => GetMessage("DATA_PARALLELS1C_HANDLER_TABLE_SORT"),
 //			),
 			'NAME' => array(
 				'data_type' => 'text',
-				'title' => GetMessage("EXCHANGE_PARALLELS1C_HANDLER_TABLE_CODE"),
+				'title' => GetMessage("DATA_PARALLELS1C_HANDLER_TABLE_CODE"),
 			),
 			'PATH' => array(
 				'data_type' => 'text',
-				'title' => GetMessage("EXCHANGE_PARALLELS1C_HANDLER_TABLE_CODE"),
+				'title' => GetMessage("DATA_PARALLELS1C_HANDLER_TABLE_CODE"),
 			),
 			'DISALLOW_ALL' => array(
 				'data_type' => 'boolean',
@@ -58,12 +58,12 @@ class ExchangeTable extends Entity\DataManager
 			),
 			'PARAMS' => array(
 				'data_type' => 'text',
-				'title' => GetMessage("EXCHANGE_HANDLERS1C_HANDLER_TABLE_PARAMS"),
+				'title' => GetMessage("DATA_HANDLERS1C_HANDLER_TABLE_PARAMS"),
 				'serialized' => true
 			),
 			'MODIFIED_BY' => array(
 				'data_type' => 'integer',
-				'title' => GetMessage("EXCHANGE_PARALLELS1C_HANDLER_TABLE_MODIFIED_BY"),
+				'title' => GetMessage("DATA_PARALLELS1C_HANDLER_TABLE_MODIFIED_BY"),
 				'default_value' => function (){
 					global $USER;
 					if ( is_object($USER) && $USER instanceof \CUser && $USER->IsAuthorized() )
@@ -81,7 +81,7 @@ class ExchangeTable extends Entity\DataManager
 //					\Bitrix\Main\Application::getConnection()->getSqlHelper()->getCurrentDateTimeFunction()
 //				),
 				'default_value' => new Type\DateTime(),
-				'title' => GetMessage("EXCHANGE_PARALLELS1C_HANDLER_TABLE_TIMESTAMP_X"),
+				'title' => GetMessage("DATA_PARALLELS1C_HANDLER_TABLE_TIMESTAMP_X"),
 			)),
 			'IMPORT_XML_NEW_ONLY' => array(
 				'data_type' => 'boolean',
@@ -117,7 +117,7 @@ class ExchangeTable extends Entity\DataManager
 				'data_type' => 'boolean',
 				'values' => array("N", "Y"),
 				'default_value' => "N",
-				'title' => GetMessage("EXCHANGE_PARALLELS1C_HANDLER_DISALLOW_DEACTIVATE_STEP"),
+				'title' => GetMessage("DATA_PARALLELS1C_HANDLER_DISALLOW_DEACTIVATE_STEP"),
 			),
 			'ALLOW_DEACTIVATE_IBLOCKS' => array(
 				'data_type' => 'text',
@@ -212,7 +212,7 @@ class ExchangeTable extends Entity\DataManager
 		$ID = $arParameters["id"]["ID"];
 		if ( $ID > 0 )
 		{
-			$result = \Exchange\Parallel1c\ExchangeTable::getById( $ID );
+			$result = \Data\Parallel1c\ExchangeTable::getById( $ID );
 			if ( $arFields = $result->fetch() )
 			{
 				self::$arItemBeforeDelete = $arFields;
@@ -228,7 +228,7 @@ class ExchangeTable extends Entity\DataManager
 		$ID = $arParameters["id"]["ID"];
 		if ( $ID > 0 && $ID == self::$arItemBeforeDelete[ "ID" ] )
 		{
-			\Exchange\Parallel1c\Tools::removeTmpByCode( self::$arItemBeforeDelete[ "CODE" ] );
+			\Data\Parallel1c\Tools::removeTmpByCode( self::$arItemBeforeDelete[ "CODE" ] );
 		}
 	}
 }

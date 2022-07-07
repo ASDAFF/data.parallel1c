@@ -1,12 +1,12 @@
 <?
-namespace Exchange\Parallel1c;
+namespace Data\Parallel1c;
 
 use Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);
 
 class Tools
 {
-	static private $MODULE_ID="exchange.parallel1c";
+	static private $MODULE_ID="data.parallel1c";
 
 	static public function installDefaultSettings()
 	{
@@ -22,7 +22,7 @@ class Tools
 
 		foreach ( $list as $arItem )
 		{
-			\Exchange\Parallel1c\ExchangeTable::add($arItem);
+			\Data\Parallel1c\ExchangeTable::add($arItem);
 		}
 	}
 
@@ -30,8 +30,8 @@ class Tools
 	{
 		if ( strlen($code) > 0 )
 		{
-			$table_name = "b_xml_tree_exchange_parallel1c_".$code;
-			$catalog_name = "1c_catalog_exchange_parallel1c_".$code;
+			$table_name = "b_xml_tree_data_parallel1c_".$code;
+			$catalog_name = "1c_catalog_data_parallel1c_".$code;
 
 			$connection = \Bitrix\Main\Application::getConnection();
 			if ( $connection->isTableExists( $table_name ) )
@@ -57,7 +57,7 @@ class Tools
 			$request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
 			$path = $request->getRequestedPage();
 
-			$res = \Exchange\Parallel1c\ExchangeTable::getList(
+			$res = \Data\Parallel1c\ExchangeTable::getList(
 				array(
 					"filter" => array(
 						"=PATH" => $path

@@ -1,5 +1,5 @@
 <?
-$MESS["exchange_parallel1c_options_about"] = '<strong>Добро пожаловать!</strong>
+$MESS["data_parallel1c_options_about"] = '<strong>Добро пожаловать!</strong>
 <br><br>
 Модуль содержит страницы обмена, на которых расположен модифицированный компонент импорта товаров.
 Модифицированный компонент работает так же, как оригинальный. Мы следим за его своевременным обновлением.
@@ -10,7 +10,7 @@ $MESS["exchange_parallel1c_options_about"] = '<strong>Добро пожалов�
 <strong>Примеры применения модуля:</strong>
 <br>
 <br><strong>1. Если на сайте несколько инфоблоков товаров,</strong> то без проблем выгружаете два и более инфоблоков параллельно.
-В 1С достаточно настроить несколько обменов вместо одного с разными файлами вида /bitrix/admin/a03_exchange_parallel1c_exchange.php, /bitrix/admin/a04_exchange_parallel1c_exchange.php и т. д.
+В 1С достаточно настроить несколько обменов вместо одного с разными файлами вида /bitrix/admin/a03_data_parallel1c_exchange.php, /bitrix/admin/a04_data_parallel1c_exchange.php и т. д.
 <br>
 <br><strong>2. Если на сайте один инфоблок,</strong> то в 1С настраиваете два обмена:
 <br>- в первом обмене выгружаете товары полностью, но без торговых предложений, цен и остатков (или на сайте включите опции их пропускать)
@@ -20,27 +20,27 @@ $MESS["exchange_parallel1c_options_about"] = '<strong>Добро пожалов�
 Во втором обмене вы получите ускорение выгрузки цен и остатков. А первый обмен выгрузит описания товаров.
 <br><br>
 <style>
-	.exchange_parallel1c_option_table 
+	.data_parallel1c_option_table 
 	{
 		border-spacing: 0;
 		border-collapse: collapse;
 	}
 
-	.exchange_parallel1c_option_table td 
+	.data_parallel1c_option_table td 
 	{		
 		margin: 0;
 		padding: 5px 5px;
 		border: 1px solid black;
 	}
 
-	.exchange_parallel1c_option_table th 
+	.data_parallel1c_option_table th 
 	{		
 		margin: 0;
 		padding: 5px 5px;
 		border: 1px solid black;
 	}
 </style>
-<table class="exchange_parallel1c_option_table">
+<table class="data_parallel1c_option_table">
 	<tr>
 		<th></th>
 		<th>a01</th>
@@ -75,45 +75,45 @@ $MESS["exchange_parallel1c_options_about"] = '<strong>Добро пожалов�
 
  
 <br><br>
-<a href="http://exchange.ru/api_help/course1/lesson221/" target="_blank">Документация по модулю</a>
+<a href="http://data.ru/api_help/course1/lesson221/" target="_blank">Документация по модулю</a>
 <br><br>
-<a href="/bitrix/admin/exchange_parallel1c_exchange_admin.php?lang='.LANG.'">Настройки обменов с 1С</a>
+<a href="/bitrix/admin/data_parallel1c_exchange_admin.php?lang='.LANG.'">Настройки обменов с 1С</a>
 ';
 
 
 
-$MESS["exchange_parallel1c_options_about_html"] = 'На этой странице есть только общие настройки модуля.';
+$MESS["data_parallel1c_options_about_html"] = 'На этой странице есть только общие настройки модуля.';
 
-$MESS ['exchange_parallel1c_header_debug'] = "Отладка обмена";
+$MESS ['data_parallel1c_header_debug'] = "Отладка обмена";
 
-$MESS ['exchange_parallel1c_copy_exchange_files'] = "Копировать XML-файлы обмена в папку модуля";
-$MESS ['exchange_parallel1c_copy_exchange_files_help'] = 'Опция полезна лишь для отладки.
+$MESS ['data_parallel1c_copy_exchange_files'] = "Копировать XML-файлы обмена в папку модуля";
+$MESS ['data_parallel1c_copy_exchange_files_help'] = 'Опция полезна лишь для отладки.
 <br><br>
 Не включайте опцию постоянно. Она нужна лишь программисту при настройке и отладе обмена. Модуль не следит за размером папки, и место на диске может закончиться.
 <br><br>
-Папка файлов <a target="_blank" href="/bitrix/admin/fileman_admin.php?lang='.LANGUAGE_ID.'&amp;path='.urlencode("/upload/1c_catalog_copy_exchange_parallel1c").'">/upload/1c_catalog_copy_exchange_parallel1c</a>
+Папка файлов <a target="_blank" href="/bitrix/admin/fileman_admin.php?lang='.LANGUAGE_ID.'&amp;path='.urlencode("/upload/1c_catalog_copy_data_parallel1c").'">/upload/1c_catalog_copy_data_parallel1c</a>
 ';
 
 
 
 //
-//$MESS["EXCHANGE_PARALLEL1C1_LOG_GROUP"] = 'Разработчикам: настройки для функции \\CExchangeParallel1c::log( $value, $label );';
+//$MESS["DATA_PARALLEL1C1_LOG_GROUP"] = 'Разработчикам: настройки для функции \\CDataParallel1c::log( $value, $label );';
 //
-//$MESS["EXCHANGE_PARALLEL1C1_LOG_GROUP"] = 'Разработчикам: настройки для функции \\CExchangeParallel1c::log( $value, $label );';
-//$MESS["EXCHANGE_PARALLEL1C1_LOG_GROUP_HELP"] = 'Функцию <strong>\\CExchangeParallel1c::log</strong> можно использовать
+//$MESS["DATA_PARALLEL1C1_LOG_GROUP"] = 'Разработчикам: настройки для функции \\CDataParallel1c::log( $value, $label );';
+//$MESS["DATA_PARALLEL1C1_LOG_GROUP_HELP"] = 'Функцию <strong>\\CDataParallel1c::log</strong> можно использовать
 //для отладки собственных обработчиков данных. Функция является оберткой над стандартной <a target="_blank" href="https://dev.1c-bitrix.ru/api_help/main/functions/debug/addmessage2log.php">AddMessage2Log</a>
 //
 //<br><br>Имя файла лога можете указать самостоятельно. Например, в файле <strong>/bitrix/php_interface/dbconn.php</strong> можете написать:
 //
 //<br><br><strong>define( "LOG_FILENAME", $_SERVER["DOCUMENT_ROOT"]."/log-'.
-//\COption::GetOptionString( "exchange.parallel1c", "random_value" ).'.txt");</strong>';
+//\COption::GetOptionString( "data.parallel1c", "random_value" ).'.txt");</strong>';
 //
-//$MESS ['exchange_pro1c_log_trace'] = "Записывать в лог-файл порядок вызова функций";
-//$MESS ['exchange_pro1c_log_trace_help'] = "Количество строк трейса, которые дополнительно попадут в лог-файл";
+//$MESS ['data_pro1c_log_trace'] = "Записывать в лог-файл порядок вызова функций";
+//$MESS ['data_pro1c_log_trace_help'] = "Количество строк трейса, которые дополнительно попадут в лог-файл";
 //
-//$MESS ['exchange_pro1c_log_max_size'] = "Максимальный размер лог-файла";
-//$MESS ['exchange_pro1c_log_max_size_2'] = "мегабайт";
-//$MESS ['exchange_pro1c_log_max_size_help'] = "При достижении максимального размера лог-файл будет очищен.
+//$MESS ['data_pro1c_log_max_size'] = "Максимальный размер лог-файла";
+//$MESS ['data_pro1c_log_max_size_2'] = "мегабайт";
+//$MESS ['data_pro1c_log_max_size_help'] = "При достижении максимального размера лог-файл будет очищен.
 //Это нужно, чтобы место на сайте не закочилось.";
 
 ?>

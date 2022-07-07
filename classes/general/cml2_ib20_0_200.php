@@ -6,7 +6,7 @@ use Bitrix\Main,
 
 IncludeModuleLangFile(__FILE__);
 
-class CExchangeParallelsIBlockCMLImport_IB20_0_200
+class CDataParallelsIBlockCMLImport_IB20_0_200
 {
 	const IBLOCK_CACHE_FREEZE = 'D';
 	const IBLOCK_CACHE_FINAL = 'F';

@@ -1,1 +1,1 @@
-drop table if exists b_exchange_parallel1c_exchange;
+drop table if exists b_data_parallel1c_exchange;

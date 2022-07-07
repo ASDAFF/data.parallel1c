@@ -1,11 +1,11 @@
 <?if(!check_bitrix_sessid()) return;?>
 <?
-global $exchange_parallel1c_global_errors;
-$exchange_parallel1c_global_errors = is_array($exchange_parallel1c_global_errors) ? $exchange_parallel1c_global_errors : array();
+global $data_parallel1c_global_errors;
+$data_parallel1c_global_errors = is_array($data_parallel1c_global_errors) ? $data_parallel1c_global_errors : array();
 
-if(is_array($exchange_parallel1c_global_errors) && count($exchange_parallel1c_global_errors)>0)
+if(is_array($data_parallel1c_global_errors) && count($data_parallel1c_global_errors)>0)
 {
-	foreach($exchange_parallel1c_global_errors as $val)
+	foreach($data_parallel1c_global_errors as $val)
 	{
 		$alErrors .= $val."<br>";
 	}
@@ -16,7 +16,7 @@ else
 	echo CAdminMessage::ShowNote(GetMessage("MOD_INST_OK"));
 	
 	?>
-	<p><a href="settings.php?lang=<?=LANG?>&amp;mid=exchange.parallel1c&amp;mid_menu=2"><?=GetMessage("EXCHANGE_PARALLEL1C1_SETTINGS_PAGE" )?></a></p>
+	<p><a href="settings.php?lang=<?=LANG?>&amp;mid=data.parallel1c&amp;mid_menu=2"><?=GetMessage("DATA_PARALLEL1C1_SETTINGS_PAGE" )?></a></p>
 	<?	
 }
 ?>

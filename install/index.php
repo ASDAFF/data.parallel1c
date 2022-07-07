@@ -1,11 +1,11 @@
 <?php
 
 IncludeModuleLangFile(__FILE__);
-if (class_exists('exchange_parallel1c')) return;
+if (class_exists('data_parallel1c')) return;
 
-class exchange_parallel1c extends CModule
+class data_parallel1c extends CModule
 {
-    var $MODULE_ID = "exchange.parallel1c";
+    var $MODULE_ID = "data.parallel1c";
     public $MODULE_VERSION;
     public $MODULE_VERSION_DATE;
     public $MODULE_NAME;
@@ -13,7 +13,7 @@ class exchange_parallel1c extends CModule
     public $PARTNER_NAME;
     public $PARTNER_URI;
     public $MODULE_GROUP_RIGHTS = 'Y';
-    public $version = '8.0.7';
+    public $_965838297 = '8.0.7';
     public $_1499546494 = array("iblock");
     public $_1159779154 = "bitrix";
 
@@ -35,42 +35,42 @@ class exchange_parallel1c extends CModule
             $this->MODULE_VERSION_DATE = $arModuleVersion['VERSION_DATE'];
         }
         $this->PARTNER_NAME = 'ASDAFF';
-        $this->PARTNER_NAME = GetMessage('EXCHANGE_PARALLEL1C1_PARTNER_NAME');
+        $this->PARTNER_NAME = GetMessage('DATA_PARALLEL1C1_PARTNER_NAME');
         $this->PARTNER_URI = 'https://asdaff.github.io/';
-        $this->MODULE_NAME = GetMessage('EXCHANGE_PARALLEL1C1_MODULE_NAME');
-        $this->MODULE_DESCRIPTION = GetMessage('EXCHANGE_PARALLEL1C1_MODULE_DESCRIPTION');
+        $this->MODULE_NAME = GetMessage('DATA_PARALLEL1C1_MODULE_NAME');
+        $this->MODULE_DESCRIPTION = GetMessage('DATA_PARALLEL1C1_MODULE_DESCRIPTION');
     }
 
     public function DoInstall()
     {
         global $APPLICATION;
         global $DB;
-        global $exchange_parallel1c_global_errors;
-        $exchange_parallel1c_global_errors = array();
-        if (is_array($this->_1499546494) && !empty($this->_1499546494)) foreach ($this->_1499546494 as $_255431949) if (!IsModuleInstalled($_255431949)) $exchange_parallel1c_global_errors[] = GetMessage('EXCHANGE_PARALLEL1C1_NEED_MODULES', array('#MODULE#' => $_255431949));
+        global $data_parallel1c_global_errors;
+        $data_parallel1c_global_errors = array();
+        if (is_array($this->_1499546494) && !empty($this->_1499546494)) foreach ($this->_1499546494 as $_255431949) if (!IsModuleInstalled($_255431949)) $data_parallel1c_global_errors[] = GetMessage('DATA_PARALLEL1C1_NEED_MODULES', array('#MODULE#' => $_255431949));
         if (strlen($this->_965838297) > 0 && version_compare(SM_VERSION, $this->_965838297) < 0) {
-            $exchange_parallel1c_global_errors[] = GetMessage('EXCHANGE_PARALLEL1C1_NEED_RIGHT_VER', array('#NEED#' => $this->_965838297));
+            $data_parallel1c_global_errors[] = GetMessage('DATA_PARALLEL1C1_NEED_RIGHT_VER', array('#NEED#' => $this->_965838297));
         }
         if (strtolower($DB->type) != 'mysql') {
-            $exchange_parallel1c_global_errors[] = GetMessage('EXCHANGE_PARALLEL1C1_ONLY_MYSQL_ERROR');
+            $data_parallel1c_global_errors[] = GetMessage('DATA_PARALLEL1C1_ONLY_MYSQL_ERROR');
         }
-        if (count($exchange_parallel1c_global_errors) == 0) {
+        if (count($data_parallel1c_global_errors) == 0) {
             $_969659624 = \Bitrix\Main\Application::getConnection();
-            $_432070089 = $_969659624->isTableExists('b_exchange_parallel1c_exchange');
+            $_432070089 = $_969659624->isTableExists('b_data_parallel1c_exchange');
             $_1964162162 = !$_432070089;
             if ($this->InstallDB()) {
                 $this->InstallFiles();
                 $this->InstallEvents();
-                RegisterModule('exchange.parallel1c');
+                RegisterModule('data.parallel1c');
                 if ($_1964162162) {
                     \Bitrix\Main\Loader::includeModule($this->MODULE_ID);
-                    \Exchange\Parallel1c\Tools::installDefaultSettings();
+                    \Data\Parallel1c\Tools::installDefaultSettings();
                 }
             } else {
-                $exchange_parallel1c_global_errors[] = GetMessage('EXCHANGE_PARALLEL1C1_INSTALL_TABLE_ERROR');
+                $data_parallel1c_global_errors[] = GetMessage('DATA_PARALLEL1C1_INSTALL_TABLE_ERROR');
             };
         }
-        $APPLICATION->IncludeAdminFile(GetMessage('EXCHANGE_PARALLEL1C1_INSTALL_TITLE'), $_SERVER['DOCUMENT_ROOT'] . '/' . $this->_1159779154 . '/modules/' . $this->MODULE_ID . '/install/step.php');
+        $APPLICATION->IncludeAdminFile(GetMessage('DATA_PARALLEL1C1_INSTALL_TITLE'), $_SERVER['DOCUMENT_ROOT'] . '/' . $this->_1159779154 . '/modules/' . $this->MODULE_ID . '/install/step.php');
         return true;
     }
 
@@ -81,19 +81,19 @@ class exchange_parallel1c extends CModule
         if ($_388519351 >= 'W') {
             $step = IntVal($step);
             if ($step < 2) {
-                $APPLICATION->IncludeAdminFile(GetMessage('EXCHANGE_PARALLEL1C1_UNINSTALL_TITLE'), $_SERVER['DOCUMENT_ROOT'] . '/' . $this->_1159779154 . '/modules/' . $this->MODULE_ID . '/install/unstep1.php');
+                $APPLICATION->IncludeAdminFile(GetMessage('DATA_PARALLEL1C1_UNINSTALL_TITLE'), $_SERVER['DOCUMENT_ROOT'] . '/' . $this->_1159779154 . '/modules/' . $this->MODULE_ID . '/install/unstep1.php');
             } elseif ($step == 2) {
                 if ($_REQUEST['savedata'] != 'Y') {
                     \Bitrix\Main\Loader::includeModule($this->MODULE_ID);
-                    $_1549870444 = \Exchange\Parallel1c\ExchangeTable::getList(array('select' => array('ID'),));
+                    $_1549870444 = \Data\Parallel1c\ExchangeTable::getList(array('select' => array('ID'),));
                     if ($_1451062140 = $_1549870444->fetch()) {
-                        \Exchange\Parallel1c\ExchangeTable::delete($_1451062140['ID']);
+                        \Data\Parallel1c\ExchangeTable::delete($_1451062140['ID']);
                     }
                     $this->UnInstallDB();
                 }
                 $this->UnInstallFiles();
-                UnRegisterModule('exchange.parallel1c');
-                $APPLICATION->IncludeAdminFile(GetMessage('EXCHANGE_PARALLEL1C1_UNINSTALL_TITLE'), $_SERVER['DOCUMENT_ROOT'] . '/' . $this->_1159779154 . '/modules/' . $this->MODULE_ID . '/install/unstep2.php');
+                UnRegisterModule('data.parallel1c');
+                $APPLICATION->IncludeAdminFile(GetMessage('DATA_PARALLEL1C1_UNINSTALL_TITLE'), $_SERVER['DOCUMENT_ROOT'] . '/' . $this->_1159779154 . '/modules/' . $this->MODULE_ID . '/install/unstep2.php');
                 return true;
             }
         }
@@ -103,8 +103,8 @@ class exchange_parallel1c extends CModule
     {
         CopyDirFiles($_SERVER['DOCUMENT_ROOT'] . '/' . $this->_1159779154 . '/modules/' . $this->MODULE_ID . '/install/admin/', $_SERVER['DOCUMENT_ROOT'] . '/bitrix/admin/');
         CopyDirFiles($_SERVER['DOCUMENT_ROOT'] . '/' . $this->_1159779154 . '/modules/' . $this->MODULE_ID . '/install/themes/', $_SERVER['DOCUMENT_ROOT'] . '/bitrix/themes/', true, true);
-        CopyDirFiles($_SERVER['DOCUMENT_ROOT'] . '/' . $this->_1159779154 . '/modules/' . $this->MODULE_ID . '/install/components/exchange/', $_SERVER['DOCUMENT_ROOT'] . '/bitrix/components/exchange/', true, true);
-        CheckDirPath($_SERVER['DOCUMENT_ROOT'] . '/upload/1c_catalog_copy_exchange_parallel1c/');
+        CopyDirFiles($_SERVER['DOCUMENT_ROOT'] . '/' . $this->_1159779154 . '/modules/' . $this->MODULE_ID . '/install/components/data/', $_SERVER['DOCUMENT_ROOT'] . '/bitrix/components/data/', true, true);
+        CheckDirPath($_SERVER['DOCUMENT_ROOT'] . '/upload/1c_catalog_copy_data_parallel1c/');
     }
 
     function UnInstallFiles($_1735337710 = array())
@@ -112,9 +112,9 @@ class exchange_parallel1c extends CModule
         DeleteDirFiles($_SERVER['DOCUMENT_ROOT'] . '/' . $this->_1159779154 . '/modules/' . $this->MODULE_ID . '/install/admin/', $_SERVER['DOCUMENT_ROOT'] . '/bitrix/admin');
         DeleteDirFiles($_SERVER['DOCUMENT_ROOT'] . '/' . $this->_1159779154 . '/modules/' . $this->MODULE_ID . '/install/themes/.default/', $_SERVER['DOCUMENT_ROOT'] . '/bitrix/themes/.default');
         DeleteDirFilesEx('/bitrix/themes/.default/icons/' . $this->MODULE_ID . '/');
-        DeleteDirFilesEx('/bitrix/components/exchange/exchange.parallel1c.catalog.import.1c.17.6.3/');
-        DeleteDirFilesEx('/bitrix/components/exchange/exchange.parallel1c.catalog.import.1c.20.0.0/');
-        DeleteDirFilesEx('/upload/1c_catalog_copy_exchange_parallel1c/');
+        DeleteDirFilesEx('/bitrix/components/data/data.parallel1c.catalog.import.1c.17.6.3/');
+        DeleteDirFilesEx('/bitrix/components/data/data.parallel1c.catalog.import.1c.20.0.0/');
+        DeleteDirFilesEx('/upload/1c_catalog_copy_data_parallel1c/');
     }
 
     function InstallDB()
@@ -122,7 +122,7 @@ class exchange_parallel1c extends CModule
 
         $_1583735852 = true;
         global $APPLICATION, $DB;
-        if (!$DB->Query("SELECT 'x' FROM b_exchange_parallel1c_exchange", true)) $_72159314 = "Y"; else $_72159314 = "N";
+        if (!$DB->Query("SELECT 'x' FROM b_data_parallel1c_exchange", true)) $_72159314 = "Y"; else $_72159314 = "N";
         $_730090081 = false;
         if ($_72159314 == "Y") {
             $_234088923 = $_SERVER['DOCUMENT_ROOT'] . '/' . $this->_1159779154 . '/modules/' . $this->MODULE_ID . '/install/db/' . strtolower($DB->type) . '/install.sql';

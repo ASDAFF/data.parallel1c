@@ -1,18 +1,19 @@
 <?
+
 IncludeModuleLangFile(__FILE__);
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/options.php");
 require_once( "prolog.php" );
 
-$module_id = "exchange.parallel1c";
+$module_id = "data.parallel1c";
 $install_status = CModule::IncludeModuleEx($module_id);
 
 $arGroups = array(
 //	"group1" => array(
-//		"NAME" => GetMessage("EXCHANGE_PARALLEL1C1_LOG_GROUP"),
-//		"HELP" => GetMessage("EXCHANGE_PARALLEL1C1_LOG_GROUP_HELP"),
+//		"NAME" => GetMessage("DATA_PARALLEL1C1_LOG_GROUP"),
+//		"HELP" => GetMessage("DATA_PARALLEL1C1_LOG_GROUP_HELP"),
 //	),
 	"debug" => array(
-		"NAME" => GetMessage("exchange_parallel1c_header_debug"),
+		"NAME" => GetMessage("data_parallel1c_header_debug"),
 	),
 );
 
@@ -24,9 +25,9 @@ $arOptions[] = array(
 	"CODE" => "copy_exchange_files",
 	"SITE_ID" => "",
 	"SHOW_EXACT_SITE_VALUE" => false,
-	"NAME" => GetMessage("exchange_parallel1c_copy_exchange_files"),
+	"NAME" => GetMessage("data_parallel1c_copy_exchange_files"),
 	"TYPE" => "CHECKBOX",
-	"HELP" => GetMessage("exchange_parallel1c_copy_exchange_files_help"),
+	"HELP" => GetMessage("data_parallel1c_copy_exchange_files_help"),
 	"GROUP" => "debug",
 );
 
@@ -35,9 +36,9 @@ $arOptions[] = array(
 //	"CODE" => "log_trace",
 //	"SITE_ID" => "",
 //	"SHOW_EXACT_SITE_VALUE" => false,
-//	"NAME" => GetMessage("exchange_pro1c_log_trace"),
+//	"NAME" => GetMessage("data_pro1c_log_trace"),
 //	"TYPE" => "INTEGER",
-//	"HELP" => GetMessage("exchange_pro1c_log_trace_help"),
+//	"HELP" => GetMessage("data_pro1c_log_trace_help"),
 //	"MIN" => 0,
 //	"GROUP" => "group1",
 //);
@@ -46,11 +47,11 @@ $arOptions[] = array(
 //	"CODE" => "log_max_size",
 //	"SITE_ID" => "",
 //	"SHOW_EXACT_SITE_VALUE" => false,
-//	"NAME" => GetMessage("exchange_pro1c_log_max_size"),
-//	"NAME2" => GetMessage("exchange_pro1c_log_max_size_2"),
+//	"NAME" => GetMessage("data_pro1c_log_max_size"),
+//	"NAME2" => GetMessage("data_pro1c_log_max_size_2"),
 //	"TYPE" => "INTEGER",
 //	"MIN" => 1,
-//	"HELP" => GetMessage("exchange_pro1c_log_max_size_help"),
+//	"HELP" => GetMessage("data_pro1c_log_max_size_help"),
 //	"GROUP" =>"group1",
 //);
 
@@ -65,8 +66,8 @@ elseif( $install_status==3 )
 	CAdminMessage::ShowMessage(
 		Array(
 			"TYPE"=>"ERROR",
-			"MESSAGE" => GetMessage("exchange_parallel1c_prolog_status_demo_expired"),
-			"DETAILS"=> GetMessage("exchange_parallel1c_prolog_buy_html"),
+			"MESSAGE" => GetMessage("data_parallel1c_prolog_status_demo_expired"),
+			"DETAILS"=> GetMessage("data_parallel1c_prolog_buy_html"),
 			"HTML"=>true
 		)
 	);	
@@ -222,7 +223,7 @@ else
 //			CAdminMessage::ShowMessage(
 //				Array(
 //					"TYPE"=>"ERROR",
-//					"MESSAGE" => GetMessage("exchange_parallel1c_error_save_header"),
+//					"MESSAGE" => GetMessage("data_parallel1c_error_save_header"),
 //					"DETAILS"=> implode( "<br />", $arErrors ),
 //					"HTML"=>true
 //				)
@@ -235,8 +236,8 @@ else
 			CAdminMessage::ShowMessage(
 				Array(
 					"TYPE"=>"OK",
-					"MESSAGE" => GetMessage("exchange_parallel1c_prolog_status_demo"),
-					"DETAILS"=> GetMessage("exchange_parallel1c_prolog_buy_html"),
+					"MESSAGE" => GetMessage("data_parallel1c_prolog_status_demo"),
+					"DETAILS"=> GetMessage("data_parallel1c_prolog_buy_html"),
 					"HTML"=>true
 				)
 			);
@@ -264,15 +265,15 @@ else
 					<?CAdminMessage::ShowMessage(
 						Array(
 							"TYPE"=>"OK",
-							"MESSAGE" => GetMessage("exchange_parallel1c_options_about"),
-							"DETAILS"=> GetMessage("exchange_parallel1c_options_about_html", array( "#LANG#" => LANGUAGE_ID ) ),
+							"MESSAGE" => GetMessage("data_parallel1c_options_about"),
+							"DETAILS"=> GetMessage("data_parallel1c_options_about_html", array( "#LANG#" => LANGUAGE_ID ) ),
 							"HTML"=>true
 						)
 					);?>
 					*/?>
 
 					<?=BeginNote();?>
-						<?=GetMessage("exchange_parallel1c_options_about", array("#LANG#" => LANG ) );?>
+						<?=GetMessage("data_parallel1c_options_about", array("#LANG#" => LANG ) );?>
 					<?=EndNote();?>
 				</td>
 			</tr>

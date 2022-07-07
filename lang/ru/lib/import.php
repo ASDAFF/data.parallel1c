@@ -1,5 +1,5 @@
 <?
-namespace Exchange\Parallel1c;
+namespace Data\Parallel1c;
 
 class Import
 {
@@ -78,7 +78,7 @@ class Import
 					if ( strlen($xml_id) > 0 )
 					{
 
-						if (  \CExchangeParallel1c::IsNewElement( $xml_id, $IBLOCK_ID ) )
+						if (  \CDataParallel1c::IsNewElement( $xml_id, $IBLOCK_ID ) )
 						{
 							$arNewElementKeys[$key] = $key;
 						}
